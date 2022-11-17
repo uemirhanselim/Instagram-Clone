@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:instagram_clone/view/home_view.dart';
+import 'package:instagram_clone/bottom_nav_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const HomeView(),
+          home: const BottomNavBar(),
         );
       },
     );
