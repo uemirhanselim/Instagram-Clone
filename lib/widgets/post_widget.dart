@@ -5,8 +5,8 @@ import 'package:readmore/readmore.dart';
 import 'package:shimmer/shimmer.dart';
 
 class PostWidget extends StatelessWidget {
-  const PostWidget({super.key});
-
+  const PostWidget({super.key, required this.postUrl});
+  final String postUrl;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,9 +39,7 @@ class PostWidget extends StatelessWidget {
             padding: EdgeInsets.only(top: 8.h),
             child: SizedBox(
               height: 400,
-              child: Image.network(
-                  "https://static.onecms.io/wp-content/uploads/sites/6/2022/04/15/Better-Call-Saul-S6.jpg",
-                  fit: BoxFit.cover),
+              child: Image.network(postUrl, fit: BoxFit.cover),
             ),
           ),
           Row(
