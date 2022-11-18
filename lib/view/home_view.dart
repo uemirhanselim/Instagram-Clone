@@ -14,9 +14,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isLoaded = false;
+  late String postUrl;
 
   @override
   void initState() {
+    postUrl =
+        "https://www.cumhuriyet.com.tr/Archive/2021/7/31/1856785/kapak_120121.png";
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         isLoaded = true;
@@ -58,7 +61,7 @@ class _HomeViewState extends State<HomeView> {
             itemBuilder: (context, index) {
               return isLoaded == false
                   ? const GetShimmeredPost()
-                  : const PostWidget();
+                  : PostWidget(postUrl: postUrl);
             },
           )
         ],
