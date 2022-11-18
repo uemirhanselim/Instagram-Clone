@@ -32,19 +32,24 @@ class _BottomNavBarState extends State<BottomNavBar>
         children: views,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedIconTheme: const IconThemeData(size: 29, color: Colors.black),
+        iconSize: 28,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
-        onTap: (index) => setState(() => currentIndex = index),
+        onTap: (index) => setState(() {
+          currentIndex = index;
+        }),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Iconsax.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Iconsax.search_favorite), label: "Search"),
+              icon: Icon(Iconsax.search_normal_1), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Iconsax.discover), label: "Discover"),
+              icon: Icon(Iconsax.video_play), label: "Discover"),
           BottomNavigationBarItem(
-              icon: Icon(Iconsax.shopping_bag), label: "Shopping"),
-          BottomNavigationBarItem(
-              icon: Icon(Iconsax.profile), label: "Profile"),
+              icon: Icon(Icons.shopping_bag_outlined), label: "Shopping"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
     );
