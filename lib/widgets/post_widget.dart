@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PostWidget extends StatelessWidget {
   const PostWidget({super.key});
@@ -98,5 +99,81 @@ class PostWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class GetShimmeredPost extends StatelessWidget {
+  const GetShimmeredPost({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+        baseColor: Colors.grey[500]!,
+        highlightColor: Colors.grey[200]!,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.white,
+                  ),
+                  SizedBox(width: 10.w),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text("aaaaaaaaaaaaaaaaaaa.aaaaaar",
+                          style: TextStyle(color: Colors.white)),
+                      Text("Londra", style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
+                  const Spacer(),
+                  const Icon(Icons.menu, color: Colors.white)
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 8.h),
+              child: Container(
+                height: 400,
+                color: Colors.white,
+              ),
+            ),
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Iconsax.heart, color: Colors.white),
+                  onPressed: () {
+                    // handle the press
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Iconsax.message_2, color: Colors.white),
+                  onPressed: () {
+                    // handle the press
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Iconsax.send_2, color: Colors.white),
+                  onPressed: () {
+                    // handle the press
+                  },
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.bookmark_border_sharp,
+                      color: Colors.white),
+                  onPressed: () {
+                    // handle the press
+                  },
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 }
