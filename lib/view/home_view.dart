@@ -5,8 +5,25 @@ import 'package:instagram_clone/widgets/user_story_widget.dart';
 import '../widgets/post_widget.dart';
 import '../widgets/product_app_bar_widget.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  bool isLoaded = false;
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        isLoaded = true;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +56,9 @@ class HomeView extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 30,
             itemBuilder: (context, index) {
-              return const PostWidget();
+              return isLoaded == false
+                  ? const GetShimmeredPost()
+                  : const PostWidget();
             },
           )
         ],
